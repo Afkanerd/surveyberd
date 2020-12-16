@@ -12,58 +12,53 @@
 
 <body>
 
-    <div class="container m-auto">
+    <div class="container p-5">
+        <h2 class="mb-5">Composer</h2>
 
-        <div class="col-md-8 p-5">
-            <h2 class="mb-5">Composer</h2>
+        <div id="blk_question_container">
+            <div class="mb-3">
+                <label for="input_question_id" class="form-label">ID</label>
+                <input type="text" class="form-control" id="input_question_id" aria-describedby="input_question_id">
+            </div>
 
-            <button class="btn btn-outline-primary mb-3"><i class="las la-plus-circle la-lg"></i> New Question</button>
+            <div class="mb-3">
+                <label for="input_question_text" class="form-label">Question text</label>
+                <input type="text" class="form-control" id="input_question_text" aria-describedby="input_question_text">
+            </div>
 
+            <div class="mb-3">
+                <label for="select_response_type" class="form-label">Response type</label>
+                <select class="custom-select" id="select_response_type">
+                    <option selected>select from list</option>
+                    <option value="mcq">MCQ</option>
+                    <option value="multiple">Multiple answers</option>
+                    <option value="numeric">Numeric</option>
+                    <option value="short_text">Short text</option>
+                    <option value="long_text">Long text</option>
+                </select>
+            </div>
 
-            <div id="blk_question_container">
-                <div class="mb-3">
-                    <label for="input_question_id" class="form-label">ID</label>
-                    <input type="text" class="form-control" id="input_question_id" aria-describedby="input_question_id">
-                </div>
+            <div class="mb-3" id="blk_responses_container">
+                <label class="form-label">Response</label>
 
-                <div class="mb-3">
-                    <label for="input_question_text" class="form-label">Question text</label>
-                    <input type="text" class="form-control" id="input_question_text"
-                        aria-describedby="input_question_text">
-                </div>
-
-                <div class="mb-3">
-                    <label for="select_response_type" class="form-label">Response type</label>
-                    <select class="custom-select" id="select_response_type">
-                        <option selected>Response type</option>
-                        <option value="mcq">MCQ (radio)</option>
-                        <option value="multiple">Multiple answers (checkbox)</option>
-                        <option value="numeric">Numeric (number input)</option>
-                        <option value="short_text">Short text (text input)</option>
-                        <option value="long_text">Long text (text area)</option>
-                    </select>
-                </div>
-
-                <div class="mb-3" id="blk_response_container">
-                    <button class="btn btn-outline-primary align-items-center" id="add_response_button"><i class="las la-plus-circle la-lg"></i> response</button>
-
-                    <div class="form-row my-3">
-                        <div class="col">
+                <div id="blk_responses_values">
+                    <div class="form-row">
+                        <div class="col-12 col-md-4 mb-3">
                             <input type="text" class="form-control" placeholder="Value label" id="response_value_label">
                         </div>
-                        <div class="col">
+                        <div class="col-12 col-md-4 mb-3">
                             <input type="text" class="form-control" placeholder="value" id="response_value">
                         </div>
-                        <div class="col">
-                            <button class="btn btn-outline-primary p-1"><i class="las la-save"></i> save</button>
-                            <button class="btn btn-outline-danger p-1"><i class="las la-minus-circle"></i> remove</button>
+                        <div class="col-12 col-md-4 d-flex d-md-block justify-content-between">
+                            <button class="btn btn-outline-primary"><i class="las la-save"></i>save</button>
+                            <button class="btn btn-outline-danger"><i class="las la-minus-circle"></i> remove</button>
                         </div>
                     </div>
                 </div>
             </div>
 
-
-            <button type="submit" class="btn btn-primary btn-block"><i class="las la-save la-lg"></i> save</button>
+            <button class="btn btn-primary btn-block my-4" id="question_save_button"><i class="las la-save la-lg"></i>
+                save</button>
         </div>
     </div>
 
