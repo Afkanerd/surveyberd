@@ -47,25 +47,31 @@ function create_response_fields() {
 
   var rs_row = document.createElement("div");
   rs_row.className = "form-row mb-3";
-  rs_row.id ="rs_row";
+  rs_row.id = "rs_row";
 
   var col_1 = document.createElement("div");
   col_1.className = "col-12 col-md-4 mb-3";
 
   var rs_value_label_input = document.createElement("input");
   rs_value_label_input.className = "form-control";
-  rs_value_label_input.setAttribute("type","text");
-  rs_value_label_input.setAttribute("placeholder","value label");
+  rs_value_label_input.setAttribute("type", "text");
+  rs_value_label_input.setAttribute("placeholder", "value label");
   rs_value_label_input.id = "response_value_label";
+
+  col_1.appendChild(rs_value_label_input);
+  rs_row.appendChild(col_1);
 
   var col_2 = document.createElement("div");
   col_2.className = "col-12 col-md-4 mb-3";
 
   var rs_value_input = document.createElement("input");
   rs_value_input.className = "form-control";
-  rs_value_input.setAttribute("type","text");
-  rs_value_input.setAttribute("placeholder","value");
+  rs_value_input.setAttribute("type", "text");
+  rs_value_input.setAttribute("placeholder", "value");
   rs_value_input.id = "response_value";
+
+  col_2.appendChild(rs_value_input);
+  rs_row.appendChild(col_2);
 
   var col_3 = document.createElement("div");
   col_3.className = "col-12 col-md-4 d-flex d-md-block justify-content-between";
@@ -73,18 +79,28 @@ function create_response_fields() {
   var save_btn = document.createElement("button");
   save_btn.className = "btn btn-outline-primary";
   save_btn.id = rs_row.id;
+  save_btn.textContent = " save";
 
   var save_icon = document.createElement("i");
   save_icon.className = "las la-save";
 
+  save_btn.prepend(save_icon);
+
   var remove_btn = document.createElement("button");
-  remove_btn.className = "btn btn-outline-danger";
+  remove_btn.className = "btn btn-outline-danger mx-md-2";
+  remove_btn.textContent = " remove";
 
   var remove_icon = document.createElement("i");
   remove_icon.className = "las la-minus-circle";
 
+  remove_btn.prepend(remove_icon);
 
- // Todo finish this
+  col_3.appendChild(save_btn);
+  col_3.appendChild(remove_btn);
+
+  rs_row.appendChild(col_3);
+
+
 
 
   var response_template = `
@@ -102,5 +118,5 @@ function create_response_fields() {
                     </div> `;
 
   blk_responses_container.classList.remove("d-none");
-  blk_responses_container.innerHTML += response_template;
+  blk_responses_container.appendChild(rs_row);
 };
