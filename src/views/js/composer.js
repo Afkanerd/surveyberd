@@ -60,6 +60,7 @@ const create_response_fields = (type) => {
                         </div>
                     </div> `;
   blk_responses_container.classList.remove("d-none");
+  blk_responses_container.innerHTML = ""
 
   switch (type) {
     case "MCQ":
