@@ -10,13 +10,9 @@ var blk_question_container = document.getElementById("blk_question_container");
 var blk_responses_container = document.getElementById(
   "blk_responses_container"
 );
-var blk_response_values = document.getElementById(
-    "blk_response_values"
-  );
 var question_save_button = document.getElementById("question_save_button");
 
 select_response_type.addEventListener("change", () => {
-
   console.log(`
    ${input_question_id.value} \n
    ${input_question_text.value} \n
@@ -25,7 +21,7 @@ select_response_type.addEventListener("change", () => {
 
   switch (select_response_type.value) {
     case "MCQ":
-      // handle
+      create_response_fields("MCQ");
       break;
 
     case "multiple":
@@ -49,3 +45,42 @@ select_response_type.addEventListener("change", () => {
 
 // ToDo : add handler functions
 
+const create_response_fields = (type) => {
+  var response_template = `
+                        <div class="form-row">
+                        <div class="col-12 col-md-4 mb-3">
+                            <input type="text" class="form-control" placeholder="Value label" id="response_value_label">
+                        </div>
+                        <div class="col-12 col-md-4 mb-3">
+                            <input type="text" class="form-control" placeholder="value" id="response_value">
+                        </div>
+                        <div class="col-12 col-md-4 d-flex d-md-block justify-content-between">
+                            <button class="btn btn-outline-primary"><i class="las la-save"></i>save</button>
+                            <button class="btn btn-outline-danger"><i class="las la-minus-circle"></i> remove</button>
+                        </div>
+                    </div> `;
+  blk_responses_container.classList.remove("d-none");
+
+  switch (type) {
+    case "MCQ":
+      blk_responses_container.innerHTML = response_template;
+      break;
+
+    case "multiple":
+      // handle
+      break;
+
+    case "numeric":
+      //handle
+      break;
+    case "short_text":
+      //handle
+      break;
+    case "long_text":
+      //handle
+      break;
+
+    default:
+    //handle
+  }
+};

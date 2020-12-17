@@ -30,7 +30,7 @@
                 <label for="select_response_type" class="form-label">Response type</label>
                 <select class="custom-select" id="select_response_type">
                     <option selected>select from list</option>
-                    <option value="mcq">MCQ</option>
+                    <option value="MCQ">MCQ</option>
                     <option value="multiple">Multiple answers</option>
                     <option value="numeric">Numeric</option>
                     <option value="short_text">Short text</option>
@@ -38,22 +38,11 @@
                 </select>
             </div>
 
-            <div class="mb-3" id="blk_responses_container">
-                <label class="form-label">Response</label>
+            <div class="mb-3">
+                <label class="form-label">Responses</label>
 
-                <div id="blk_responses_values">
-                    <div class="form-row">
-                        <div class="col-12 col-md-4 mb-3">
-                            <input type="text" class="form-control" placeholder="Value label" id="response_value_label">
-                        </div>
-                        <div class="col-12 col-md-4 mb-3">
-                            <input type="text" class="form-control" placeholder="value" id="response_value">
-                        </div>
-                        <div class="col-12 col-md-4 d-flex d-md-block justify-content-between">
-                            <button class="btn btn-outline-primary"><i class="las la-save"></i>save</button>
-                            <button class="btn btn-outline-danger"><i class="las la-minus-circle"></i> remove</button>
-                        </div>
-                    </div>
+                <div class="d-none" id="blk_responses_container">
+                    <!-- generated based on reponse type by composer -->
                 </div>
             </div>
 
