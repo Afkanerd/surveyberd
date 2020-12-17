@@ -15,7 +15,7 @@ var blk_response_values = document.getElementById(
   );
 var question_save_button = document.getElementById("question_save_button");
 
-question_save_button.addEventListener("click", () => {
+select_response_type.addEventListener("change", () => {
 
   console.log(`
    ${input_question_id.value} \n
@@ -48,3 +48,4 @@ question_save_button.addEventListener("click", () => {
 });
 
 // ToDo : add handler functions
+
