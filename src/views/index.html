@@ -13,7 +13,7 @@
 <body>
 
     <div class="container p-5">
-        <h2 class="mb-5">Composer</h2>
+        <h2 class="mb-5">Question Composer</h2>
 
         <div id="blk_question_container">
             <div class="mb-3">
@@ -39,7 +39,10 @@
             </div>
 
             <div class="mb-3">
-                <label class="form-label">Responses</label>
+                <div class="d-flex align-items-baseline justify-content-between mb-3">
+                    <label class="form-label">Responses</label>
+                    <button class="btn btn-outline-primary py-1" id="btn_add_response"><i class="las la-plus-circle"></i> add </button>
+                </div>
 
                 <div class="d-none" id="blk_responses_container">
                     <!-- generated based on reponse type by composer -->
@@ -47,7 +50,7 @@
             </div>
 
             <button class="btn btn-primary btn-block my-4" id="question_save_button"><i class="las la-save la-lg"></i>
-                save</button>
+                save question</button>
         </div>
     </div>
 

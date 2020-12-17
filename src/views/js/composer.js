@@ -5,14 +5,12 @@ var input_question_text = document.getElementById("input_question_text");
 var select_response_type = document.getElementById("select_response_type");
 var response_value_label = document.getElementById("response_value_label");
 var response_value = document.getElementById("response_value");
-var add_response_button = document.getElementById("add_response_button");
+var btn_add_response = document.getElementById("btn_add_response");
 var blk_question_container = document.getElementById("blk_question_container");
-var blk_responses_container = document.getElementById(
-  "blk_responses_container"
-);
+var blk_responses_container = document.getElementById("blk_responses_container");
 var question_save_button = document.getElementById("question_save_button");
 
-select_response_type.addEventListener("change", () => {
+btn_add_response.addEventListener("click", () => {
   console.log(`
    ${input_question_id.value} \n
    ${input_question_text.value} \n
@@ -23,7 +21,6 @@ select_response_type.addEventListener("change", () => {
     case "MCQ":
       create_response_fields("MCQ");
       break;
-
     case "multiple":
       // handle
       break;
@@ -39,7 +36,7 @@ select_response_type.addEventListener("change", () => {
       break;
 
     default:
-    //handle
+      //handle
   }
 });
 
@@ -47,7 +44,7 @@ select_response_type.addEventListener("change", () => {
 
 const create_response_fields = (type) => {
   var response_template = `
-                        <div class="form-row">
+                        <div class="form-row mb-3">
                         <div class="col-12 col-md-4 mb-3">
                             <input type="text" class="form-control" placeholder="Value label" id="response_value_label">
                         </div>
@@ -60,17 +57,14 @@ const create_response_fields = (type) => {
                         </div>
                     </div> `;
   blk_responses_container.classList.remove("d-none");
-  blk_responses_container.innerHTML = ""
 
   switch (type) {
     case "MCQ":
-      blk_responses_container.innerHTML = response_template;
+      blk_responses_container.innerHTML += response_template;
       break;
-
     case "multiple":
       // handle
       break;
-
     case "numeric":
       //handle
       break;
@@ -80,8 +74,7 @@ const create_response_fields = (type) => {
     case "long_text":
       //handle
       break;
-
     default:
-    //handle
+      //handle
   }
 };
