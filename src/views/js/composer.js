@@ -100,23 +100,6 @@ function create_response_fields() {
 
   rs_row.appendChild(col_3);
 
-
-
-
-  var response_template = `
-                        <div class="form-row mb-3">
-                        <div class="col-12 col-md-4 mb-3">
-                            <input type="text" class="form-control" placeholder="Value label" id="response_value_label">
-                        </div>
-                        <div class="col-12 col-md-4 mb-3">
-                            <input type="text" class="form-control" placeholder="value" id="response_value">
-                        </div>
-                        <div class="col-12 col-md-4 d-flex d-md-block justify-content-between">
-                            <button class="btn btn-outline-primary"><i class="las la-save"></i>save</button>
-                            <button class="btn btn-outline-danger"><i class="las la-minus-circle"></i> remove</button>
-                        </div>
-                    </div> `;
-
   blk_responses_container.classList.remove("d-none");
   blk_responses_container.appendChild(rs_row);
 };
