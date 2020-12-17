@@ -1,7 +1,9 @@
 const assert = require("chai").assert;
 
-it('connect to database', (done) => {
-    // done();
+describe("database check", () => {
+    it('connect to database', (done) => {
+        // done();
+    })
 })
 
 describe("vailid input", () => {
@@ -38,7 +40,7 @@ it("harsh password", (done) => {
     // done();
 })
 
-describe("successfully created", () => {
+describe("create successful", () => {
     it("return id", (done) => {
         // done()
     })
@@ -48,6 +50,8 @@ describe("successfully created", () => {
     })
 })
 
-it("fail to create", () => {
-    // done();
+describe("create unsuccessful", () => {
+    it("fail to create", () => {
+        // done();
+    })
 })
