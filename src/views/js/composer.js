@@ -24,34 +24,10 @@ btn_add_response.onclick = () => {
    ${input_question_text.value} \n
    ${select_response_type.value} \n
    `);
-
   rs_number += 1;
-  blk_responses_container.classList.remove("d-none");
+  let rs = new Create_response_fields(rs_number);
+  blk_responses_container.appendChild(rs.rs_row);
 
-  // use this to toggle selected question type
-  switch (select_response_type.value) {
-    case "MCQ":
-      let rs = new Create_response_fields(rs_number);
-      blk_responses_container.appendChild(rs.rs_row);
-      // console.log(rs);
-      break;
-    case "multiple":
-      // handle
-      break;
-
-    case "numeric":
-      //handle
-      break;
-    case "short_text":
-      //handle
-      break;
-    case "long_text":
-      //handle
-      break;
-
-    default:
-      //handle
-  }
 };
 
 function Create_response_fields(rs_number) {
