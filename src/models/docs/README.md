@@ -11,11 +11,11 @@ npm install --save-dev jsdoc
 ```
 Then add the following script to your package.json file:
 ```
-"doc": "jsdoc -d docs --configure jsconf.json main.js"
+"doc": "{path to jsdoc} -d docs {filename}"
 ```
-* `main.js` is our code’s entry point. 
+* `{filename}` e.g `example.js`is our code’s entry point. 
 * The `-d` flag tells JSDoc in which folder to output the documents. 
-* `--configure` tells JSDoc where the configuration file is located.
+* `{path to jsdoc}` e.g `{./node_modules/jsdoc/jsdoc.js}` tells JSDoc where jsdoc is located.
 
 ### Getting started
 
