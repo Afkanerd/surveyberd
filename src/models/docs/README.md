@@ -1,10 +1,21 @@
 ## jsDocs
 
 ### installation
+* Global installation
 ```
 npm install -g jsdoc
+```
+* Local installation
+```
 npm install --save-dev jsdoc
 ```
+Then add the following script to your package.json file:
+```
+"doc": "jsdoc -d docs --configure jsconf.json main.js"
+```
+* `main.js` is our code’s entry point. 
+* The `-d` flag tells JSDoc in which folder to output the documents. 
+* `--configure` tells JSDoc where the configuration file is located.
 
 ### Getting started
 
@@ -44,7 +55,13 @@ function Book(title, author) {
 
 * By default, JSDoc uses the built-in "default" template to turn the documentation into HTML. You can edit this template to suit your own needs or create an entirely new template if that is what you prefer.
 
+If you installed globally run:
 ```
 jsdoc {filename}
 ```
 * This command will create a directory named `out/` in the current working directory. Within that directory, you will find the generated HTML pages.
+
+If you isntalled locally run:
+```
+npm run doc
+```
