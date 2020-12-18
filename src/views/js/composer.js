@@ -10,6 +10,7 @@ var blk_question_container = document.getElementById("blk_question_container");
 var blk_responses_container = document.getElementById("blk_responses_container");
 var question_save_button = document.getElementById("question_save_button");
 
+//counter for number of responses
 var rs_number = 0
 
 btn_add_response.addEventListener("click", () => {
@@ -19,10 +20,16 @@ btn_add_response.addEventListener("click", () => {
    ${select_response_type.value} \n
    `);
 
+  rs_number += 1;
+  blk_responses_container.classList.remove("d-none");
+
   // use this to toggle selected question type
   switch (select_response_type.value) {
     case "MCQ":
-      create_response_fields();
+      let rs = new Create_response_fields(rs_number);
+      blk_responses_container.appendChild(rs.rs_row);
+      console.log(rs);
+
       break;
     case "multiple":
       // handle
@@ -45,72 +52,69 @@ btn_add_response.addEventListener("click", () => {
 
 // ToDo : add handler functions
 
-function create_response_fields() {
+function Create_response_fields(rs_number) {
 
-  var rs_row = document.createElement("div");
-  rs_row.className = "form-row mb-3";
+  this.rs_row = document.createElement("div");
+  this.rs_row.className = "form-row mb-3";
 
-  var col_1 = document.createElement("div");
-  col_1.className = "col-12 col-md-4 mb-3";
+  this.col_1 = document.createElement("div");
+  this.col_1.className = "col-12 col-md-4 mb-3";
 
-  var rs_value_label_input = document.createElement("input");
-  rs_value_label_input.className = "form-control";
-  rs_value_label_input.setAttribute("type", "text");
-  rs_value_label_input.setAttribute("placeholder", "value label");
-  rs_value_label_input.id = "response_value_label";
+  this.rs_value_label_input = document.createElement("input");
+  this.rs_value_label_input.className = "form-control";
+  this.rs_value_label_input.setAttribute("type", "text");
+  this.rs_value_label_input.setAttribute("placeholder", "value label");
+  this.rs_value_label_input.id = "response_value_label";
 
-  col_1.appendChild(rs_value_label_input);
-  rs_row.appendChild(col_1);
+  this.col_1.appendChild(this.rs_value_label_input);
+  this.rs_row.appendChild(this.col_1);
 
-  var col_2 = document.createElement("div");
-  col_2.className = "col-12 col-md-4 mb-3";
+  this.col_2 = document.createElement("div");
+  this.col_2.className = "col-12 col-md-4 mb-3";
 
-  var rs_value_input = document.createElement("input");
-  rs_value_input.className = "form-control";
-  rs_value_input.setAttribute("type", "text");
-  rs_value_input.setAttribute("placeholder", "value");
-  rs_value_input.id = "response_value";
+  this.rs_value_input = document.createElement("input");
+  this.rs_value_input.className = "form-control";
+  this.rs_value_input.setAttribute("type", "text");
+  this.rs_value_input.setAttribute("placeholder", "value");
+  this.rs_value_input.id = "response_value";
 
-  col_2.appendChild(rs_value_input);
-  rs_row.appendChild(col_2);
+  this.col_2.appendChild(this.rs_value_input);
+  this.rs_row.appendChild(this.col_2);
 
-  var col_3 = document.createElement("div");
-  col_3.className = "col-12 col-md-4 d-flex d-md-block justify-content-between";
+  this.col_3 = document.createElement("div");
+  this.col_3.className = "col-12 col-md-4 d-flex d-md-block justify-content-between";
 
-  var save_btn = document.createElement("button");
-  save_btn.className = "btn btn-outline-primary";
-  save_btn.id = "btn_save_rs_" + rs_number;
-  save_btn.textContent = " save";
+  this.save_btn = document.createElement("button");
+  this.save_btn.className = "btn btn-outline-primary";
+  this.save_btn.id = "btn_save_rs_" + rs_number;
+  this.save_btn.textContent = " save";
 
-  var save_icon = document.createElement("i");
-  save_icon.className = "las la-save";
+  this.save_icon = document.createElement("i");
+  this.save_icon.className = "las la-save";
 
-  save_btn.prepend(save_icon);
+  this.save_btn.prepend(this.save_icon);
 
-  var remove_btn = document.createElement("button");
-  remove_btn.className = "btn btn-outline-danger mx-md-2";
-  remove_btn.textContent = " remove";
+  this.remove_btn = document.createElement("button");
+  this.remove_btn.className = "btn btn-outline-danger mx-md-2";
+  this.remove_btn.textContent = " remove";
 
-  var remove_icon = document.createElement("i");
-  remove_icon.className = "las la-minus-circle";
+  this.remove_icon = document.createElement("i");
+  this.remove_icon.className = "las la-minus-circle";
 
-  remove_btn.prepend(remove_icon);
+  this.remove_btn.prepend(this.remove_icon);
 
-  col_3.appendChild(save_btn);
-  col_3.appendChild(remove_btn);
+  this.col_3.appendChild(this.save_btn);
+  this.col_3.appendChild(this.remove_btn);
 
-  rs_row.appendChild(col_3);
+  this.rs_row.appendChild(this.col_3);
 
 
   //Todo : add code for save
-  save_btn.onclick = () => {
+  this.save_btn.onclick = () => {
     console.log("save btn clicked");
   }
   //Todo : add code so this removes the response
-  remove_btn.onclick = () => {
+  this.remove_btn.onclick = () => {
     console.log("remove btn clicked");
   }
-
-  blk_responses_container.classList.remove("d-none");
-  blk_responses_container.appendChild(rs_row);
 };
