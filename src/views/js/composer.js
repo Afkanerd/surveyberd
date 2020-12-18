@@ -14,6 +14,10 @@ var btn_save_question = document.getElementById("btn_save_question");
 var rs_number = 0;
 var qs_number = 0;
 
+// variable contains all questions
+
+var questions = [];
+
 btn_add_response.onclick = () => {
   console.log(`
    ${input_question_id.value} \n
@@ -29,7 +33,7 @@ btn_add_response.onclick = () => {
     case "MCQ":
       let rs = new Create_response_fields(rs_number);
       blk_responses_container.appendChild(rs.rs_row);
-      console.log(rs);
+      // console.log(rs);
       break;
     case "multiple":
       // handle
@@ -49,8 +53,6 @@ btn_add_response.onclick = () => {
       //handle
   }
 };
-
-// ToDo : add handler functions
 
 function Create_response_fields(rs_number) {
 
@@ -125,8 +127,16 @@ function Create_response_fields(rs_number) {
 
 function Save_question_fields(qs_number) {
 
+  let question = {
+    id: input_question_id.value,
+    text: input_question_text.value,
+    type: select_response_type.value,
+    response: []
+  }
+  questions.push(question);
 }
 
 btn_save_question.onclick = () => {
-  console.log("btn_save_question");
+  Save_question_fields(qs_number);
+  console.log(questions);
 }
