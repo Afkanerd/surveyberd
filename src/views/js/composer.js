@@ -56,6 +56,7 @@ function Create_response_fields(rs_number) {
 
   this.rs_row = document.createElement("div");
   this.rs_row.className = "form-row mb-3";
+  this.rs_row.id = "blk_rs_" + rs_number;
 
   this.col_1 = document.createElement("div");
   this.col_1.className = "col-12 col-md-4 mb-3";
@@ -96,6 +97,7 @@ function Create_response_fields(rs_number) {
 
   this.remove_btn = document.createElement("button");
   this.remove_btn.className = "btn btn-outline-danger mx-md-2";
+  this.remove_btn.id = "btn_remove_rs_" + rs_number;
   this.remove_btn.textContent = " remove";
 
   this.remove_icon = document.createElement("i");
@@ -109,12 +111,14 @@ function Create_response_fields(rs_number) {
   this.rs_row.appendChild(this.col_3);
 
 
-  //Todo : add code for save
+  // save btn handler
   this.save_btn.onclick = () => {
-    console.log("save btn clicked");
+    console.log(this.save_btn.id + " clicked");
+    // Todo : update handler for response on save
   }
-  //Todo : add code so this removes the response
+  // remove btn handler
   this.remove_btn.onclick = () => {
-    console.log("remove btn clicked");
+    this.rs_row.parentNode.removeChild(this.rs_row);
+    console.log(this.rs_row.id + " removed")
   }
 };
