@@ -8,12 +8,13 @@ var response_value = document.getElementById("response_value");
 var btn_add_response = document.getElementById("btn_add_response");
 var blk_question_container = document.getElementById("blk_question_container");
 var blk_responses_container = document.getElementById("blk_responses_container");
-var question_save_button = document.getElementById("question_save_button");
+var btn_save_question = document.getElementById("btn_save_question");
 
-//counter for number of responses
-var rs_number = 0
+//counter for number of questions and responses
+var rs_number = 0;
+var qs_number = 0;
 
-btn_add_response.addEventListener("click", () => {
+btn_add_response.onclick = () => {
   console.log(`
    ${input_question_id.value} \n
    ${input_question_text.value} \n
@@ -47,7 +48,7 @@ btn_add_response.addEventListener("click", () => {
     default:
       //handle
   }
-});
+};
 
 // ToDo : add handler functions
 
@@ -121,3 +122,11 @@ function Create_response_fields(rs_number) {
     console.log(this.rs_row.id + " removed")
   }
 };
+
+function Save_question_fields(qs_number) {
+
+}
+
+btn_save_question.onclick = () => {
+  console.log("btn_save_question");
+}
