@@ -12,45 +12,51 @@
 
 <body>
 
-    <div class="container p-5">
+    <div class="container-fluid p-5">
         <h2 class="mb-5">Question Composer</h2>
 
-        <div id="blk_question_container">
-            <div class="mb-3">
-                <label for="input_question_id" class="form-label">ID</label>
-                <input type="text" class="form-control" id="input_question_id" aria-describedby="input_question_id">
-            </div>
-
-            <div class="mb-3">
-                <label for="input_question_text" class="form-label">Question text</label>
-                <input type="text" class="form-control" id="input_question_text" aria-describedby="input_question_text">
-            </div>
-
-            <div class="mb-3">
-                <label for="select_response_type" class="form-label">Response type</label>
-                <select class="custom-select" id="select_response_type">
-                    <option selected>select from list</option>
-                    <option value="MCQ">MCQ</option>
-                    <option value="multiple">Multiple answers</option>
-                    <option value="numeric">Numeric</option>
-                    <option value="short_text">Short text</option>
-                    <option value="long_text">Long text</option>
-                </select>
-            </div>
-
-            <div class="mb-3">
-                <div class="d-flex align-items-baseline justify-content-between mb-3">
-                    <label class="form-label">Responses</label>
-                    <button class="btn btn-outline-primary py-1" id="btn_add_response"><i class="las la-plus-circle"></i> add </button>
+        <div class="row">
+            <div class="col-12 col-md-8" id="blk_question_container">
+                <div class="mb-3">
+                    <label for="input_question_id" class="form-label">ID</label>
+                    <input type="text" class="form-control" id="input_question_id" aria-describedby="input_question_id">
                 </div>
 
-                <div id="blk_responses_container">
-                    <!-- generated based on reponse type by composer -->
+                <div class="mb-3">
+                    <label for="input_question_text" class="form-label">Question text</label>
+                    <input type="text" class="form-control" id="input_question_text"
+                        aria-describedby="input_question_text">
                 </div>
+
+                <div class="mb-3">
+                    <label for="select_response_type" class="form-label">Response type</label>
+                    <select class="custom-select" id="select_response_type">
+                        <option selected>select from list</option>
+                        <option value="MCQ">MCQ</option>
+                        <option value="multiple">Multiple answers</option>
+                        <option value="numeric">Numeric</option>
+                        <option value="short_text">Short text</option>
+                        <option value="long_text">Long text</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <div class="d-flex align-items-baseline justify-content-between mb-3">
+                        <label class="form-label">Responses</label>
+                        <button class="btn btn-outline-primary py-1" id="btn_add_response"><i
+                                class="las la-plus-circle"></i> add </button>
+                    </div>
+
+                    <div id="blk_responses_container">
+                        <!-- generated based on reponse type by composer -->
+                    </div>
+                </div>
+
+                <button class="btn btn-primary btn-block my-4" id="btn_save_question"><i class="las la-save la-lg"></i>
+                    save question</button>
             </div>
 
-            <button class="btn btn-primary btn-block my-4" id="btn_save_question"><i class="las la-save la-lg"></i>
-                save question</button>
+            <div class="col-12 col-md-4" id="blk_output_container"></div>
         </div>
     </div>
 

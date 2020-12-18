@@ -10,6 +10,8 @@ var blk_question_container = document.getElementById("blk_question_container");
 var blk_responses_container = document.getElementById("blk_responses_container");
 var btn_save_question = document.getElementById("btn_save_question");
 
+var blk_output_container = document.getElementById("blk_output_container");
+
 //counter for number of responses
 var rs_number = 0;
 
@@ -70,7 +72,7 @@ function Create_response_fields(rs_number) {
   this.save_btn.prepend(this.save_icon);
 
   this.remove_btn = document.createElement("button");
-  this.remove_btn.className = "btn btn-outline-danger mx-md-2";
+  this.remove_btn.className = "btn btn-outline-danger mx-md-1";
   this.remove_btn.id = "btn_remove_rs_" + rs_number;
   this.remove_btn.textContent = " remove";
 
@@ -120,7 +122,30 @@ function Save_question() {
   questions.push(question);
 }
 
+function show_output() {
+  questions.forEach(function (question) {
+    let card = document.createElement("div");
+    card.className = "card shadow-sm border mb-3 p-3";
+
+    let id = document.createElement("p");
+    id.textContent = `ID : ${question.id}`;
+
+    let text = document.createElement("p");
+    text.textContent = `Text : ${question.text}`;
+
+    let type = document.createElement("p");
+    type.textContent = `Type : ${question.type}`;
+
+    card.append(id, text, type);
+
+    blk_output_container.appendChild(card);
+
+  });
+}
+
 btn_save_question.onclick = () => {
   Save_question();
   console.log(questions);
+  show_output();
+
 }
