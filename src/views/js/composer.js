@@ -29,7 +29,6 @@ btn_add_response.addEventListener("click", () => {
       let rs = new Create_response_fields(rs_number);
       blk_responses_container.appendChild(rs.rs_row);
       console.log(rs);
-
       break;
     case "multiple":
       // handle
