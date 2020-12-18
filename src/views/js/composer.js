@@ -10,13 +10,13 @@ var blk_question_container = document.getElementById("blk_question_container");
 var blk_responses_container = document.getElementById("blk_responses_container");
 var btn_save_question = document.getElementById("btn_save_question");
 
-//counter for number of questions and responses
+//counter for number of responses
 var rs_number = 0;
-var qs_number = 0;
 
 // variable contains all questions
 
 var questions = [];
+var responses = [];
 
 btn_add_response.onclick = () => {
   console.log(`
@@ -91,8 +91,14 @@ function Create_response_fields(rs_number) {
 
   // save btn handler
   this.save_btn.onclick = () => {
-    console.log(this.save_btn.id + " clicked");
+    // console.log(this.save_btn.id + " clicked");
     // Todo : update handler for response on save
+    let response = {
+      value_label: this.rs_value_input.value,
+      value: this.rs_value_input.value
+    }
+    responses.push(response);
+    console.log(responses);
   }
   // remove btn handler
   this.remove_btn.onclick = () => {
@@ -101,18 +107,18 @@ function Create_response_fields(rs_number) {
   }
 };
 
-function Save_question_fields(qs_number) {
+function Save_question() {
 
   let question = {
     id: input_question_id.value,
     text: input_question_text.value,
     type: select_response_type.value,
-    response: []
+    response: responses
   }
   questions.push(question);
 }
 
 btn_save_question.onclick = () => {
-  Save_question_fields(qs_number);
+  Save_question();
   console.log(questions);
 }
