@@ -19,11 +19,7 @@ var questions = [];
 var responses = [];
 
 btn_add_response.onclick = () => {
-  console.log(`
-   ${input_question_id.value} \n
-   ${input_question_text.value} \n
-   ${select_response_type.value} \n
-   `);
+
   rs_number += 1;
   let rs = new Create_response_fields(rs_number);
   blk_responses_container.appendChild(rs.rs_row);
@@ -91,24 +87,30 @@ function Create_response_fields(rs_number) {
 
   // save btn handler
   this.save_btn.onclick = () => {
-    // console.log(this.save_btn.id + " clicked");
     // Todo : update handler for response on save
     let response = {
       value_label: this.rs_value_input.value,
       value: this.rs_value_input.value
     }
+
     responses.push(response);
-    console.log(responses);
+
+    this.save_btn.className = "btn btn-success";
+    this.save_btn.textContent = " saved";
+    this.save_icon.className = "las la-check-circle";
+    this.save_btn.prepend(this.save_icon);
+    this.save_btn.disabled = true;
+    this.rs_value_label_input.disabled = true;
+    this.rs_value_input.disabled = true;
   }
   // remove btn handler
   this.remove_btn.onclick = () => {
     this.rs_row.parentNode.removeChild(this.rs_row);
-    console.log(this.rs_row.id + " removed")
+    console.log(this.rs_row.id + " removed");
   }
 };
 
 function Save_question() {
-
   let question = {
     id: input_question_id.value,
     text: input_question_text.value,
