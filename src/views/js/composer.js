@@ -10,6 +10,8 @@ var blk_question_container = document.getElementById("blk_question_container");
 var blk_responses_container = document.getElementById("blk_responses_container");
 var question_save_button = document.getElementById("question_save_button");
 
+var rs_number = 0
+
 btn_add_response.addEventListener("click", () => {
   console.log(`
    ${input_question_id.value} \n
@@ -47,7 +49,6 @@ function create_response_fields() {
 
   var rs_row = document.createElement("div");
   rs_row.className = "form-row mb-3";
-  rs_row.id = "rs_row";
 
   var col_1 = document.createElement("div");
   col_1.className = "col-12 col-md-4 mb-3";
@@ -78,7 +79,7 @@ function create_response_fields() {
 
   var save_btn = document.createElement("button");
   save_btn.className = "btn btn-outline-primary";
-  save_btn.id = rs_row.id;
+  save_btn.id = "btn_save_rs_" + rs_number;
   save_btn.textContent = " save";
 
   var save_icon = document.createElement("i");
@@ -99,6 +100,16 @@ function create_response_fields() {
   col_3.appendChild(remove_btn);
 
   rs_row.appendChild(col_3);
+
+
+  //Todo : add code for save
+  save_btn.onclick = () => {
+    console.log("save btn clicked");
+  }
+  //Todo : add code so this removes the response
+  remove_btn.onclick = () => {
+    console.log("remove btn clicked");
+  }
 
   blk_responses_container.classList.remove("d-none");
   blk_responses_container.appendChild(rs_row);
