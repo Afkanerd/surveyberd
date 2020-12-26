@@ -123,6 +123,9 @@ function Save_question() {
 }
 
 function show_output() {
+  // clear all children to avoid duplicates
+
+  blk_output_container.textContent = "";
   questions.forEach(function (question) {
     let card = document.createElement("div");
     card.className = "card shadow-sm border mb-3 p-3";
@@ -137,15 +140,16 @@ function show_output() {
     type.textContent = `Type : ${question.type}`;
 
     var rs_text = document.createElement("p");
-    rs_text.textContent = `response(s)`;
+    rs_text.textContent = `Response(s)`;
 
     var rs_ul = document.createElement("ul");
     rs_ul.className = "list-group list-group-flush";
 
     question.response.forEach(function (response) {
-      
+
       let rs_li = document.createElement("li");
       rs_li.className ="list-group-item";
+
       let rs_val_label = document.createElement("span");
       rs_val_label.textContent = `Value Label : ${response.value_label}`;
 
