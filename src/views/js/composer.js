@@ -128,7 +128,10 @@ function show_output() {
   blk_output_container.textContent = "";
   questions.forEach(function (question) {
     let card = document.createElement("div");
-    card.className = "card shadow-sm border mb-3 p-3";
+    card.className = "card shadow-sm border mb-3";
+
+    let card_body = document.createElement("div");
+    card_body.className = "p-3";
 
     let id = document.createElement("p");
     id.textContent = `ID : ${question.id}`;
@@ -139,21 +142,19 @@ function show_output() {
     let type = document.createElement("p");
     type.textContent = `Type : ${question.type}`;
 
-    var rs_text = document.createElement("p");
+    let rs_text = document.createElement("p");
     rs_text.textContent = `Response(s)`;
 
     var rs_ul = document.createElement("ul");
-    rs_ul.className = "list-group list-group-flush";
 
     question.response.forEach(function (response) {
 
       let rs_li = document.createElement("li");
-      rs_li.className ="list-group-item";
 
       let rs_val_label = document.createElement("span");
       rs_val_label.textContent = `Value Label : ${response.value_label}`;
 
-      var line_break = document.createElement("br");
+      let line_break = document.createElement("br");
 
       let rs_value = document.createElement("span");
       rs_value.textContent = `Value: ${response.value}`;
@@ -163,7 +164,23 @@ function show_output() {
       rs_ul.append(rs_li);
     })
 
-    card.append(id, text, type,rs_text, rs_ul);
+    let card_footer = document.createElement("div");
+    card_footer.className = "card-footer d-flex justify-content-between";
+
+    let edit_btn = document.createElement("button");
+    edit_btn.className = "btn btn-outline-primary flex-md-fill";
+    edit_btn.id = "btn_edit_qs_" + id;
+    edit_btn.textContent = " edit";
+
+    let remove_btn = document.createElement("button");
+    remove_btn.className = "btn btn-outline-danger mx-md-1 flex-md-fill";
+    remove_btn.id = "btn_remove_qs_" + id;
+    remove_btn.textContent = " remove";
+
+    card_footer.append(edit_btn, remove_btn);
+
+    card_body.append(id, text, type, rs_text, rs_ul);
+    card.append(card_body, card_footer);
 
     blk_output_container.appendChild(card);
 
@@ -175,8 +192,8 @@ btn_save_question.onclick = () => {
 
   //reset input fields to blank
   responses = [];
-  input_question_id.value  ="";
-  input_question_text.value ="";
+  input_question_id.value = "";
+  input_question_text.value = "";
   select_response_type.selectedIndex = 0;
   blk_responses_container.innerHTML = "";
 
