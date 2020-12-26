@@ -172,6 +172,7 @@ function show_output() {
 
 btn_save_question.onclick = () => {
   Save_question();
+  responses = [];
   console.log(questions);
   show_output();
 
