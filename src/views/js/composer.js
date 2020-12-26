@@ -172,10 +172,20 @@ function show_output() {
     edit_btn.id = "btn_edit_qs_" + id;
     edit_btn.textContent = " edit";
 
+    let edit_icon = document.createElement("i");
+    edit_icon.className = "las la-edit";
+
+    edit_btn.prepend(edit_icon);
+
     let remove_btn = document.createElement("button");
     remove_btn.className = "btn btn-outline-danger mx-md-1 flex-md-fill";
     remove_btn.id = "btn_remove_qs_" + id;
     remove_btn.textContent = " remove";
+
+    let remove_icon = document.createElement("i");
+    remove_icon.className = "las la-minus-circle";
+
+    remove_btn.prepend(remove_icon);
 
     card_footer.append(edit_btn, remove_btn);
 
