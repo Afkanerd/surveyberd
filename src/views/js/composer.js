@@ -91,7 +91,7 @@ function Create_response_fields(rs_number) {
   this.save_btn.onclick = () => {
     // Todo : update handler for response on save
     let response = {
-      value_label: this.rs_value_input.value,
+      value_label: this.rs_value_label_input.value,
       value: this.rs_value_input.value
     }
 
@@ -136,7 +136,30 @@ function show_output() {
     let type = document.createElement("p");
     type.textContent = `Type : ${question.type}`;
 
-    card.append(id, text, type);
+    var rs_text = document.createElement("p");
+    rs_text.textContent = `response(s)`;
+
+    var rs_ul = document.createElement("ul");
+    rs_ul.className = "list-group list-group-flush";
+
+    question.response.forEach(function (response) {
+      
+      let rs_li = document.createElement("li");
+      rs_li.className ="list-group-item";
+      let rs_val_label = document.createElement("span");
+      rs_val_label.textContent = `Value Label : ${response.value_label}`;
+
+      var line_break = document.createElement("br");
+
+      let rs_value = document.createElement("span");
+      rs_value.textContent = `Value: ${response.value}`;
+
+      rs_li.append(rs_val_label, line_break, rs_value);
+
+      rs_ul.append(rs_li);
+    })
+
+    card.append(id, text, type,rs_text, rs_ul);
 
     blk_output_container.appendChild(card);
 
