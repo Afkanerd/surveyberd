@@ -172,7 +172,14 @@ function show_output() {
 
 btn_save_question.onclick = () => {
   Save_question();
+
+  //reset input fields to blank
   responses = [];
+  input_question_id.value  ="";
+  input_question_text.value ="";
+  select_response_type.selectedIndex = 0;
+  blk_responses_container.innerHTML = "";
+
   console.log(questions);
   show_output();
 
