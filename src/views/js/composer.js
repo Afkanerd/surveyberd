@@ -187,6 +187,14 @@ function show_output() {
 
     remove_btn.prepend(remove_icon);
 
+    edit_btn.onclick = () => {
+      //todo : make this work
+    }
+
+    remove_btn.onclick = () => {
+      //todo : make thsi work too 
+    }
+
     card_footer.append(edit_btn, remove_btn);
 
     card_body.append(id, text, type, rs_text, rs_ul);
