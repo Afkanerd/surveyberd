@@ -35,7 +35,7 @@ function Create_response_fields(rs_number) {
   this.rs_row.id = "blk_rs_" + rs_number;
 
   this.col_1 = document.createElement("div");
-  this.col_1.className = "col-12 col-md-4 mb-3";
+  this.col_1.className = "col-12 col-md-4 mb-3 mb-md-0";
 
   this.rs_value_label_input = document.createElement("input");
   this.rs_value_label_input.className = "form-control";
@@ -47,7 +47,7 @@ function Create_response_fields(rs_number) {
   this.rs_row.appendChild(this.col_1);
 
   this.col_2 = document.createElement("div");
-  this.col_2.className = "col-12 col-md-4 mb-3";
+  this.col_2.className = "col-12 col-md-4 mb-3 mb-md-0";
 
   this.rs_value_input = document.createElement("input");
   this.rs_value_input.className = "form-control";
@@ -59,10 +59,10 @@ function Create_response_fields(rs_number) {
   this.rs_row.appendChild(this.col_2);
 
   this.col_3 = document.createElement("div");
-  this.col_3.className = "col-12 col-md-4 d-flex d-md-block justify-content-between";
+  this.col_3.className = "col-12 col-md-4 d-flex justify-content-between";
 
   this.save_btn = document.createElement("button");
-  this.save_btn.className = "btn btn-outline-primary";
+  this.save_btn.className = "btn btn-outline-primary flex-md-fill";
   this.save_btn.id = "btn_save_rs_" + rs_number;
   this.save_btn.textContent = " save";
 
@@ -72,7 +72,7 @@ function Create_response_fields(rs_number) {
   this.save_btn.prepend(this.save_icon);
 
   this.remove_btn = document.createElement("button");
-  this.remove_btn.className = "btn btn-outline-danger mx-md-1";
+  this.remove_btn.className = "btn btn-outline-danger ml-md-2 flex-md-fill";
   this.remove_btn.id = "btn_remove_rs_" + rs_number;
   this.remove_btn.textContent = " remove";
 
@@ -178,7 +178,7 @@ function show_output() {
     edit_btn.prepend(edit_icon);
 
     let remove_btn = document.createElement("button");
-    remove_btn.className = "btn btn-outline-danger mx-md-1 flex-md-fill";
+    remove_btn.className = "btn btn-outline-danger flex-md-fill ml-3";
     remove_btn.id = "btn_remove_qs_" + id;
     remove_btn.textContent = " remove";
 
